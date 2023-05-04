@@ -60,21 +60,54 @@ app.get('/', (req, res) => {
 
 app.post('/crearNoticia', (req, res) => {
   const { titulo, contenido, image } = req.body;
+  
+  if (!titulo || !contenido || !image) {
+    return res.status(400).send('Debe proporcionar todos los campos necesarios');
+  }
+
   const id = noticias[noticias.length - 1].id + 1;
   const noticia = { id, titulo, contenido, image };
   noticias.push(noticia);
   res.redirect('/');
 });
 
+
 app.delete('/noticia/:id', (req, res) => {
   const noticiaId = parseInt(req.params.id);
+  
+  if (isNaN(noticiaId)) {
+    return res.status(400).send('El ID de la noticia debe ser un número');
+  }
+  
+  const noticia = noticias.find(noticia => noticia.id === noticiaId);
+  
+  if (!noticia) {
+    return res.status(404).send('No se encontró la noticia');
+  }
+  
   eliminarNoticia(noticiaId);
   res.redirect('/');
 });
 
-app.post('/noticia_update/:id', (req, res) => {
+
+app.put('/noticia_update/:id', (req, res) => {
   const noticiaId = parseInt(req.params.id);
+  
+  if (isNaN(noticiaId)) {
+    return res.status(400).send('El ID de la noticia debe ser un número');
+  }
+  
+  const noticia = noticias.find(noticia => noticia.id === noticiaId);
+  
+  if (!noticia) {
+    return res.status(404).send('No se encontró la noticia');
+  }
+  
   const nuevosDatosNoticia = req.body;
+
+  if (!nuevosDatosNoticia.titulo || !nuevosDatosNoticia.contenido || !nuevosDatosNoticia.imagen) {
+    return res.status(400).send('Debe proporcionar todos los campos necesarios');
+  }
 
   for (let i = 0; i < noticias.length; i++) {
     if (noticias[i].id === noticiaId) {
@@ -87,6 +120,7 @@ app.post('/noticia_update/:id', (req, res) => {
 
   res.redirect('/');
 });
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

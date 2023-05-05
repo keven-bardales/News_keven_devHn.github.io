@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32x32.png"
+    />
+    <title>Tarea 2</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet asfasfasfasf 👍 -->
+  </head>
+  <body>
+    <header id="header">
+      <a
+        href="
+      "
+        id="logo"
+        ><img src="assets/images/logo.svg" alt=""
+      /></a>
+
+      <nav id="menu">
+        <a class="nav_link" href="">Home</a>
+        <a class="nav_link" href="">New</a>
+        <a class="nav_link" href="">Popular</a>
+        <a class="nav_link" href="">Trending</a>
+        <a class="nav_link" href="">Categories</a>
+        <i class="fas fa-user"></i>
+      </nav>
+    </header>
+
+    <section id="main">
+      <div id="home">
+        <img src="assets/images/image-web-3-desktop.jpg" alt="" />
+
+        <div id="main_content">
+          <h2>
+            The Bright Future <br />
+            of Web 3.0?
+          </h2>
+          <div id="p_content">
+            <p>
+              We dive into the next evolution of the web that claims to put the
+              power of the platforms back into the hands of the people. But is
+              it really fulfilling its promise?
+            </p>
+            <a href="">READ MORE</a>
+          </div>
+        </div>
+      </div>
+
+      <aside id="aside">
+        <h1>Latest News</h1>
+        <div class="latest_new">
+          <a href=""> <h3>Hydrogen VS Electric Cars</h3></a>
+          <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+        </div>
+        <div class="latest_new">
+          <a href=""> <h3>The Downsides of AI Artistry</h3></a>
+          <p>
+            What are the possible adverse effects of on-demand AI image
+            generation?
+          </p>
+        </div>
+        <div class="latest_new">
+          <a href=""> <h3>Is VC Funding Drying Up?</h3></a>
+          <p>
+            Private funding by VC firms is down 50% YOY. We take a look at what
+            that means.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section id="news">
+      <h3>News Section</h3>
+      <form id="crear_noticiaForm" action="/crearNoticia" method="post">
+        <h3>Publish a new</h3>
+        <input type="text" name="titulo" placeholder="News Title" required />
+        <textarea
+          name="contenido"
+          placeholder="News Content"
+          required
+        ></textarea>
+
+        <input type="file" id="myfile" name="myfile" />
+        <button type="submit">Create New</button>
+      </form>
+
+      <% for (let i = 0; i < noticias.length; i++) { %>
+      <div class="new">
+        <form class="update_form" id="update-form">
+          <input
+            type="text"
+            name="titulo"
+            placeholder="Título de la noticia"
+            value="<%= noticias[i].titulo %>"
+          />
+          <input
+            type="text"
+            name="contenido"
+            placeholder="Contenido de la noticia"
+            value="<%= noticias[i].contenido %>"
+          />
+
+          <button
+            type="button"
+            onclick="actualizarNoticia(<%= noticias[i].id %>)"
+          >
+            <i class="fas fa-check"></i>
+          </button>
+
+          <button class="fa_times" type="button">
+            <i class="fas fa-times"></i>
+          </button>
+        </form>
+
+        <img class="new_img" src="<%= noticias[i].image %>" alt="" />
+        <div class="new_info">
+          <h2><%= noticias[i].id %></h2>
+          <h3><%= noticias[i].titulo %></h3>
+          <p><%= noticias[i].contenido %></p>
+          <button onclick="eliminarNoticia(<%= noticias[i].id %>)">
+            <i class="fas fa-trash"></i>
+          </button>
+          <button class="edit" href=""><i class="fas fa-edit"></i></button>
+        </div>
+      </div>
+      <% } %>
+    </section>
+
+    <footer id="footer">
+      <div>Challenged By</div>
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >
+      <div>Developed By</div>
+      <a href="">@keven_bardales_dev</a>
+    </footer>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

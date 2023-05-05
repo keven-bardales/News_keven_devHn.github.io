@@ -24,10 +24,6 @@
   --font-family-accent: 'Georgia', serif;
 }
 
-html {
-  font-size: 1rem;
-}
-
 /*ESTILOS GENERALES*/
 * {
   padding: 0px;
@@ -44,12 +40,11 @@ html {
 /*HEADER*/
 #header {
   margin: 0px auto;
-  max-width: 1200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 1rem;
+  padding: 2rem 5%;
 }
 
 #menu {
@@ -69,7 +64,7 @@ html {
 /*MAIN*/
 #main {
   margin: 0px auto;
-  max-width: 1200px;
+  padding: 2rem 5%;
   display: flex;
   align-items: stretch;
   justify-content: space-between;
@@ -159,7 +154,7 @@ html {
 
 .latest_new h3 {
   color: white;
-  margin-bottom: 5px;
+  margin-bottom: 0.3em;
 }
 .latest_new h3:hover {
   color: #e9983a;
@@ -173,11 +168,10 @@ html {
 /*NEWS*/
 #news {
   margin: 0px auto;
-  max-width: 1200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 3em 0;
+  padding: 2rem 5%;
   overflow: auto;
 }
 
@@ -203,16 +197,16 @@ html {
   font-weight: bold;
   opacity: 75%;
   flex-basis: 100%;
-  margin-top: 25px;
+  margin-top: 1.5em;
 }
 .new h3 {
-  font-size: 1.25rem;
+  font-size: 1.1.25em;
   color: hsl(240, 100%, 5%);
   flex-basis: 100%;
 }
 
 .new img {
-  width: 150px;
+  width: 9.3em;
   object-fit: contain;
   align-self: center;
 }
@@ -231,31 +225,33 @@ html {
   color: hsl(237.8, 15.4%, 34.3%);
   flex-basis: 100%;
   overflow: hidden;
-  height: 55px;
+  height: 3.45em;
 }
 
-.new_info a {
+.new_info > button {
   flex-basis: 45%;
   text-align: center;
+  background-color: transparent;
   transition: transform 0.3s ease-out;
   transform: translateX(-100%);
+  cursor: pointer;
 }
 
-.new a:last-child {
-  transform: translateX(100%);
+.new_info button:last-child {
+  transform: translateX(200%);
 }
 
-.new_info:hover a {
+.new_info:hover button {
   opacity: 1;
   transform: translateX(0);
 }
 
-.new_info a i {
+.new_info button i {
   font-size: 1.5em;
   color: var(--font-color-secondary);
 }
 
-.new_info a:hover i {
+.new_info button:hover i {
   color: var(--font-color-primary);
 }
 
@@ -285,7 +281,8 @@ html {
   padding: 0.5em;
 }
 
-#news button {
+#crear_noticiaForm button,
+#update-form button {
   background-color: var(--font-color-secondary);
   color: white;
   padding: 0.5em;
@@ -296,7 +293,8 @@ html {
   height: 2.5em;
 }
 
-#news button:hover {
+#crear_noticiaForm button:hover,
+#update-form button:hover {
   background-color: rgb(255, 244, 244);
   box-shadow: 2px 2px 2px black;
   color: var(--font-color-primary);
@@ -344,51 +342,69 @@ textarea {
   color: white;
 }
 
+input[type='file'] {
+  color: #ccc;
+}
+
+input[type='file']::file-selector-button {
+  color: white;
+  background-color: var(--font-color-secondary);
+  outline: none;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  margin-top: 3px;
+  padding: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+input[type='file']::file-selector-button:hover {
+  background-color: rgb(255, 244, 244);
+  box-shadow: 2px 2px 2px black;
+  color: var(--font-color-primary);
+}
+
 /*CREATED BY*/
 
-.attribution {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin: 0px auto;
+#footer {
+  margin: 0 auto;
+  padding: 3% 2%;
   width: 100%;
-  flex-wrap: wrap;
+  overflow: hidden;
   background-color: var(--font-color-primary);
-}
-
-.attribution div,
-.attribution span,
-.attribution a {
-  font-size: 2em;
-  padding: 1em;
-  display: flex;
-  text-decoration: none;
   color: white;
-  font-weight: 900;
-}
 
-.attribution a {
-  color: var(--font-color-secondary) !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
   font-size: 2em;
-  font-weight: 900;
+  font-weight: bold;
+  text-align: center;
 }
 
-.attribution a:hover {
-  color: #ccc !important;
+#footer div,
+#footer a {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+#footer a {
+  color: var(--font-color-secondary);
+}
+
+#footer a:hover {
+  color: #ccc;
+}
 /*RESPONSIVE*/
 
-@media (max-width: 1206px) {
+@media (max-width: 75.37em) {
   .new {
     padding: 1em;
     flex: 40%;
-  }
-
-  .attribution * {
-    flex-basis: 40%;
-    flex-grow: 1;
-    justify-content: space-around;
   }
 
   #home {
@@ -417,18 +433,49 @@ textarea {
     padding: 0.5em;
     margin-top: 1em;
   }
+  #footer {
+    padding-bottom: 3%;
+  }
+
+  #footer div,
+  #footer a {
+    flex-basis: 40%;
+    margin-bottom: 1em;
+  }
 }
 
-@media (max-width: 760px) {
-  .attribution {
+@media (max-width: 47.5em) {
+  .new {
+    flex-basis: 100%;
     flex-direction: column;
+    text-align: center;
+    grid-area: 0.5px;
   }
-  #news {
-    flex-direction: column;
+
+  #aside div {
+    margin-left: 0;
+  }
+
+  #crear_noticiaForm h3 {
+    flex-basis: 100%;
+    margin-bottom: 1em;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .new_info {
+    gap: 0em;
+    padding: 0em;
+  }
+
+  #footer div,
+  #footer a {
+    flex-basis: 100%;
+    margin-bottom: 1em;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 37.5em) {
   #crear_noticiaForm input,
   #crear_noticiaForm button,
   #crear_noticiaForm textarea {
@@ -449,6 +496,7 @@ textarea {
   }
 
   #main_content {
+    overflow-x: hidden;
     flex-wrap: wrap;
     justify-content: center;
   }

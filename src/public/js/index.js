@@ -15,6 +15,25 @@ function eliminarNoticia(noticiaId) {
       console.error('Error al eliminar noticia:', error);
     });
 }
+function actualizarNoticia(noticiaId) {
+  const forms = document.getElementsByClassName('update_form');
+  const titulo = forms[noticiaId - 1]['titulo'].value;
+  const contenido = forms[noticiaId - 1]['contenido'].value;
+
+  fetch(`/noticia_update/${noticiaId}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ titulo, contenido }),
+  })
+    .then(() => {
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.error('Error al actualizar noticia:', error);
+    });
+}
 
 for (let i = 0; i < edits.length; i++) {
   edits[i].addEventListener('click', (event) => {

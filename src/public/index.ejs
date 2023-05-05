@@ -8,27 +8,18 @@
       rel="stylesheet"
       href="/@fortawesome/fontawesome-free/css/all.min.css"
     />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <!-- displays site properly based on user's device -->
 
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/images/favicon-32x32.png"
+      href="assets/images/favicon-32x32.png"
     />
     <title>Tarea 2</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet asfasfasfasf 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
   </head>
   <body>
     <header id="header">
@@ -36,7 +27,7 @@
         href="
       "
         id="logo"
-        ><img src="/images/logo.svg" alt=""
+        ><img src="assets/images/logo.svg" alt=""
       /></a>
 
       <nav id="menu">
@@ -51,7 +42,7 @@
 
     <section id="main">
       <div id="home">
-        <img src="/images/image-web-3-desktop.jpg" alt="" />
+        <img src="assets/images/image-web-3-desktop.jpg" alt="" />
 
         <div id="main_content">
           <h2>
@@ -96,25 +87,20 @@
       <h3>News Section</h3>
       <form id="crear_noticiaForm" action="/crearNoticia" method="post">
         <h3>Publish a new</h3>
-        <input type="text" name="titulo" placeholder="News Title" />
-        <textarea name="contenido" placeholder="News Content"></textarea>
+        <input type="text" name="titulo" placeholder="News Title" required />
+        <textarea
+          name="contenido"
+          placeholder="News Content"
+          required
+        ></textarea>
 
-        <input
-          type="select"
-          name="image"
-          placeholder="URL de la imagen de la noticia"
-        />
+        <input type="file" id="myfile" name="myfile" />
         <button type="submit">Create New</button>
       </form>
 
       <% for (let i = 0; i < noticias.length; i++) { %>
       <div class="new">
-        <form
-          class="update_form"
-          id="update-form"
-          action="/noticia_update/<%= noticias[i].id %>"
-          method="POST"
-        >
+        <form class="update_form" id="update-form">
           <input
             type="text"
             name="titulo"
@@ -128,7 +114,12 @@
             value="<%= noticias[i].contenido %>"
           />
 
-          <button type="submit"><i class="fas fa-check"></i></button>
+          <button
+            type="button"
+            onclick="actualizarNoticia(<%= noticias[i].id %>)"
+          >
+            <i class="fas fa-check"></i>
+          </button>
 
           <button class="fa_times" type="button">
             <i class="fas fa-times"></i>
@@ -140,23 +131,24 @@
           <h2><%= noticias[i].id %></h2>
           <h3><%= noticias[i].titulo %></h3>
           <p><%= noticias[i].contenido %></p>
-          <a href="" onclick="eliminarNoticia(<%= noticias[i].id %>)"
-            ><i class="fas fa-trash"></i
-          ></a>
-          <a class="edit" href=""><i class="fas fa-edit"></i></a>
+          <button onclick="eliminarNoticia(<%= noticias[i].id %>)">
+            <i class="fas fa-trash"></i>
+          </button>
+          <button class="edit" href=""><i class="fas fa-edit"></i></button>
         </div>
       </div>
       <% } %>
     </section>
 
-    <div class="attribution">
-      <span>Challenged By</span>
+    <footer id="footer">
+      <div>Challenged By</div>
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      ><span>Developed By</span>
+      >
+      <div>Developed By</div>
       <a href="">@keven_bardales_dev</a>
-    </div>
+    </footer>
 
-    <script src="/index.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

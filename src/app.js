@@ -38,8 +38,8 @@ app.get('/noticias_get', (req, res) => {
 });
 
 app.post('/crearNoticia', (req, res) => {
-  const { titulo, contenido, image } = req.body;
-  if (titulo && contenido && image) {
+  const { titulo, contenido } = req.body;
+  if (titulo && contenido) {
     const id = noticias[noticias.length - 1].id + 1;
     const noticia = { id, titulo, contenido, image };
     noticias.push(noticia);

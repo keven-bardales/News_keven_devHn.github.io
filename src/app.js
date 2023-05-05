@@ -41,7 +41,7 @@ app.post('/crearNoticia', (req, res) => {
   const { titulo, contenido } = req.body;
   if (titulo && contenido) {
     const id = noticias[noticias.length - 1].id + 1;
-    const noticia = { id, titulo, contenido, image };
+    const noticia = { id, titulo, contenido };
     noticias.push(noticia);
     res.redirect('/');
   } else {

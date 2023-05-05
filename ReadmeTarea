@@ -1,3 +1,0 @@
-Ingeniero aca dejo mi archivo readme
-
-El archivo app.js contiene el código principal de una aplicación web que utiliza el framework Express de Node.js. Este código define un servidor web que responde a solicitudes HTTP en el puerto 3000. El servidor utiliza una plantilla EJS para renderizar una página HTML con una lista de noticias. También permite crear nuevas noticias, eliminar noticias existentes y actualizar noticias existentes. El código utiliza el middleware BodyParser y MethodOverride para procesar las solicitudes HTTP. Los archivos estáticos como CSS, imágenes y JavaScript se sirven desde el directorio public en el servidor.

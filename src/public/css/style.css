@@ -433,6 +433,17 @@ input[type='file']::file-selector-button:hover {
     padding: 0.5em;
     margin-top: 1em;
   }
+
+  .new_info > button {
+    transform: none;
+    flex-basis: 30%;
+    margin-top: 1em;
+  }
+
+  .new_info button:last-child {
+    transform: none;
+  }
+
   #footer {
     padding-bottom: 3%;
   }
@@ -466,6 +477,7 @@ input[type='file']::file-selector-button:hover {
   .new_info {
     gap: 0em;
     padding: 0em;
+    justify-content: center;
   }
 
   #footer div,

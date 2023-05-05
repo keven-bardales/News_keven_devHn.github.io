@@ -8,7 +8,7 @@ Also the upload a file option has not been included up to this point yet.
 
 ## LINK TO MY APP UPLOADED IN RENDER
 
-## [News App In Node Js](https://dashboard.render.com/web/srv-cha89irhp8u791gep3v0/events)
+## [News App In Node Js](https://news-keven-devhn-github-io.onrender.com/)
 
 [![newsApp.png](https://i.postimg.cc/tg0DxLbB/newsApp.png)](https://postimg.cc/w1VhK47N)
 

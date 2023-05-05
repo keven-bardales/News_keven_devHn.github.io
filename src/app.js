@@ -18,6 +18,17 @@ publicPath = path.join(__dirname, 'public');
 app.use(express.static(publicPath));
 app.use(express.static('node_modules'));
 
+const multer = require('multer'); // Importa el módulo "multer" para manejar archivos
+// Configura "multer" para guardar la imagen en la carpeta "public/img"
+const storage = multer.diskStorage({
+  destination: publicPath + '/assets/images',
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage });
+
 app.get('/', (req, res) => {
   res.render(publicPath + '/index', { noticias: noticias }, (err, html) => {
     if (err) {
@@ -37,11 +48,16 @@ app.get('/noticias_get', (req, res) => {
   }
 });
 
-app.post('/crearNoticia', (req, res) => {
+app.post('/crearNoticia', upload.single('imagen'), (req, res) => {
   const { titulo, contenido } = req.body;
   if (titulo && contenido) {
     const id = noticias[noticias.length - 1].id + 1;
-    const noticia = { id, titulo, contenido };
+    const noticia = {
+      id,
+      titulo,
+      contenido,
+      image: '/assets/images/' + req.file.filename,
+    };
     noticias.push(noticia);
     res.redirect('/');
   } else {

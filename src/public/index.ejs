@@ -85,7 +85,12 @@
 
     <section id="news">
       <h3>News Section</h3>
-      <form id="crear_noticiaForm" action="/crearNoticia" method="post">
+      <form
+        id="crear_noticiaForm"
+        action="/crearNoticia"
+        enctype="multipart/form-data"
+        method="post"
+      >
         <h3>Publish a new</h3>
         <input type="text" name="titulo" placeholder="News Title" required />
         <textarea
@@ -94,7 +99,7 @@
           required
         ></textarea>
 
-        <input type="file" id="myfile" name="myfile" />
+        <input type="file" id="imagen" name="imagen" />
         <button type="submit">Create New</button>
       </form>
 

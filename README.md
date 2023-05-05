@@ -10,7 +10,7 @@ Also the upload a file option has not been included up to this point yet.
 
 ## [News App In Node Js](https://dashboard.render.com/web/srv-cha89irhp8u791gep3v0/events)
 
-## [App Preview](https://github.com/keven-bardales/News_keven_devHn.github.io/blob/main/newsApp.png)
+## [App Preview](main/newsApp.png)
 
 
 ## Table of contents

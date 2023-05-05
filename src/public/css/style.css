@@ -557,4 +557,8 @@ input[type='file']::file-selector-button:hover {
     transform: none;
     margin-left: 1.5em;
   }
+
+  #footer {
+    font-size: 1.5em;
+  }
 }

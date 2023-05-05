@@ -2,6 +2,12 @@
 
 This is a solution to the [News homepage challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/news-homepage-H6SWTa1MFl). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
+
+I have made some modifications to this website of my own creating a nodeJs app where you can create a new, delete or update a new. Also all of this is being loaded from NodeJs server with a an object in my server named noticias. Most of the code is in spanish as it is my native language. any Feedback is welcome. 
+Also the upload a file option has not been included up to this point yet.
+
+##[Link to Website]([https://www.frontendmentor.io/challenges/news-homepage-H6SWTa1MFl](https://news-keven-devhn-github-io.onrender.com/)).
+
 ## Table of contents
 
 - [Overview](#overview)

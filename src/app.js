@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const methodOverride = require('method-override');
 const app = express();
-const port = 3000;
+const port = 4000;
 let noticias = [];
 
 crearNoticias();

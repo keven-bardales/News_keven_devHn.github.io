@@ -9,7 +9,6 @@ I have made some modifications to this website of my own creating a nodeJs app w
 
 ## [News App In Node Js](https://news-keven-devhn-github-io.onrender.com/)
 
-[![newsApp.png](https://i.postimg.cc/tg0DxLbB/newsApp.png)](https://postimg.cc/w1VhK47N)
 
 
 ## Table of contents
